@@ -7,8 +7,12 @@ const CitySchema = new mongoose.Schema({
   },
   name: {type: String,
     required: [true, 'Favor preencher o nome da cidade.'],
+    unique: true,
     maxlength: [100, 'Nome da cidade não pode ser maior que 100 caracteres.'],
   }
+}, {
+  timestamps: true,
+  versionKey: false,
 })
 
-export default mongoose.models.Pet || mongoose.model('City', CitySchema)
+export default mongoose.models.City || mongoose.model('City', CitySchema)
